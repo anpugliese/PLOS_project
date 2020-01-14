@@ -1,3 +1,8 @@
+var view = new ol.View({
+  center: ol.proj.fromLonLat([-84, -2]),
+  zoom: 6
+});
+
 var osm = new ol.layer.Tile({
 	visible: true,
 	source: new ol.source.OSM()
@@ -41,10 +46,7 @@ var stamenWatercolor = new ol.layer.Tile({
 var map = new ol.Map({
 	target: 'map',
 	layers: [osm, bingRoads, bingAerial],
-	view: new ol.View({
-		center: ol.proj.fromLonLat([-84, -2]),
-		zoom: 6
-	}),
+	view: view,
 	controls: ol.control.defaults().extend([
         new ol.control.ScaleLine(),
         new ol.control.FullScreen(),
@@ -55,15 +57,15 @@ var map = new ol.Map({
         })
     ])
 });
-
+var layerSwitcher = new ol.control.LayerSwitcher({});
+map.addControl(layerSwitcher);
 
 
 
 var map2 = new ol.Map({
 	target: 'map2',
-	layers: [osm, stamenWatercolor],
-	view: new ol.View({
-		center: ol.proj.fromLonLat([-84, -2]),
-		zoom: 6
-	})
+	layers: [osm2, stamenWatercolor],
+	view: view
 });
+var layerSwitcher = new ol.control.LayerSwitcher({});
+map2.addControl(layerSwitcher);
