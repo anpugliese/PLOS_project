@@ -66,4 +66,4 @@ var map2 = new ol.Map({
 		center: ol.proj.fromLonLat([-84, -2]),
 		zoom: 6
 	})
-// });
+});
