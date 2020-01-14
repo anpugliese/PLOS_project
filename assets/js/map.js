@@ -58,10 +58,6 @@ var map = new ol.Map({
 
 
 
-var layerSwitcher = new ol.control.LayerSwitcher({});
-map.addControl(layerSwitcher);
-
-
 
 var map2 = new ol.Map({
 	target: 'map2',
