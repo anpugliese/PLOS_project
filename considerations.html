@@ -38,81 +38,82 @@
 				<!-- Section -->
 					<section class="wrapper">
 						<div class="inner">
-							<header class="align-center">
-								<h1>Technologies and data used</h1>
-								<p>Nowadays, the Geographic Information Systems have evolved and developed in a way that technologies are available for many people, in this way they facilitate the processing and analysis of geographic data. The development of this project involves the use of many different technologies for the data collection, processing and analysis, that altogether will help us describe the walkability of a designated area in Milan.</p> 
+							<div class="flex flex-2">
+									<div class="col col1">
+										<div class="align-center">
+											<img src="images/Layer2_GIS.png" alt="" height="300" /></a>
+										</div>
+									</div>
+									<div class="col col2">
+										
+										<h4 style="font-style: italic; padding-top: 20px">Nowadays, the Geographic Information Systems have evolved and developed in a way that technologies are available for many people, facilitating the processing and analysis of geographic data.
 
-								<p>The following are the steps taken to be able to achieve the final result presented through the different sections in this webpage:</p>
+										</h4>
 
-								
-
-								<p>Throughout this section we will explain each of these steps and the different tools and technologies used in our project development.
-								</p>
-
-								
-							</header>
+										<h4 style="font-style: italic;">The development of this project involved the use of many technologies for the data collection, processing and analysis that, altogether, have allowed us to describe the walkability of  “Isola”, a neighbor in Municipio 9, Milan, Italy.
+										</h4>
+																												
+									</div>	
+															
+																								
+							</div>
 							<hr class="major" />
 							<div class="flex flex-2">
 								<div class="col col2">
 									<h3>Data Collection</h3>
-									<p>Data collection was the first and one of the most complicated steps in this project. The reason for this difficulty is that data necessarily needed to be collected with specific characteristics which involved: precision, efficiency, low cost and structure. The solution to this was to use a mobile application called EpiCollect5, this application is used and supported by certain institutions such as: Center for Genomic Pathogen, University of Oxford and the British Big Data Institute. As it is described in their website: 
+									<p>Data collection is the first and one of the most delicate and expensive steps in any GIS project as it involves on-field surveying, a time consuming task.</p>
+
+									<p>
+									Data collection was performed directly at the site that was designated to us, by going into each street and filling all the data, together with GPS coordinates, inside the Epicollect5, a mobile application also used and supported by the Center for Genomic Pathogen, University of Oxford and the British Big Data Institute. 
+
 									</p>
-									<p>“Epicollect5 is a mobile & web application for free and easy data collection. (...)</p>
-
-									<p>It provides both the web and mobile application for the generation of forms (questionnaires) and freely hosted project websites for data collection. Projects are created by using the web application at five.epicollect.net, then downloaded to the device to perform the data collection.</p>
-
-									<p>Data are collected (including GPS and media) using multiple devices and all data can be viewed on a central server (via map, tables and charts).</p>
-
-									<p>Data can be exported in csv and json format.</p>
-
-									<p>Epicollect5 is 100% free to use without any limits(*). You can create as many projects as you like and upload as many entries as you like. Epicollect5 is financially supported by the Wellcome Trust Foundation and we implement open source technologies to be able to provide the service for free, forever.”
-
-								</p>
+									
 
 								</div>
 								<div class="col col1 first">
-									<div class="image round fit">
-										<a href="generic.html" class="link"><img src="images/pic02.jpg" alt="" /></a>
+									<div class="align-center">
+										<img src="images/epi.png" alt="" height="200" /></a>
 									</div>
 								</div>
 							</div>
 							
-							<p>Data collection was performed directly at the site that was designated by our professors, by going to each one of the streets to be classified with the PLOS/EPLOS methodology and filling all the data inside the Epicollect5 application. This collection also involved registering the GPS coordinates of each piece of data; information that later would be used to locate the information in our map.
+							<p>The data we collected included: number of lanes, on street parking, buffer, width of sidewalk, curb ramps, lightings, width of bike lanes and shoulders. For each data entry time, GPS coordinates and accuracy were also recorded by Epicollect5.
+
 							</p>
 							<hr class="major" />
 							<h3>Data transfer</h3>
-							<p>Data transfer is a very simple task that could be easily completed, again by using the Epicollect5 mobile application. Once the field data collection was concluded, it was uploaded to the cloud on Epicollect5 servers and afterwards downloaded as a csv format to our computers. Since the points were collected by different users in our field work, the data transfer consisted of 4 different csv files which needed to be merged together and processed.
+							<p>Data transfer was a simple task that we performed by using Epicollect5 mobile application.  Once the field data collection was concluded, it was uploaded to Epicollect5 cloud service and then downloaded as a csv format to our computers. 
+							Since the points were collected by each of us using her/his Epicollect5 account, the data transfer consisted of 4 different csv files which, later, had to be merged before processing.
+
 							</p>
 							<hr class="major" />
 							<h3>Data processing</h3>
-							<p>This step of the process was certainly the most challenging of them all, not only because of the amount of steps required to complete it, but due to the fact that data cleaning by nature is demanding since it cannot be completely automated, manual work is always needed. Data cleaning took a lot of time which were divided in the following steps:</p>
-
+							<p>This step was certainly the most challenging of the whole process, not only because of the number of actions involved, but also due to the fact that some data cleaning was required, a task that could not be completely automated. </p>
+							<p>
+							The main steps in our data processing were:
+							</p>
+							
 							<div id="ul" style="list-style-type:none;">
 								<li>1. Download data</li>
 								<li>2. Merge data into a unique file</li>
-								<li>3. Arrange data to a usable format (one column for each type of data</li>
-								<li>4. Manual verification that data is correct</li>
-								<li>5. Import data to GIS software</li>
-								<li>6. Display data in GIS software<
-								<li>7. Improve data quality (relocate points that due to accuracy problems were not located where they should)</li>
+								<li>3. Check data consistency</li>
+								<li>4. Import data to QGIS</li>
+								<li>5. Display data in QGIS</li>
+								<li>6. Improve data quality (e.g. manual relocation of points that were misplaced due to low accuracy)</li>
 
 							</div>
 							<hr class="major" />
 							
 							<h3>Data Analysis</h3>
 
-							<p>Data analysis can be seen as the most interesting part of the project, since here we visualize the final result of our project. The technology used for the Data Analysis was the GIS software called QGIS. This is an open source software developed by Open Source Geospatial Foundation (OSGeo) and used by a worldwide community. A GIS software is:</p>
-
-							<p>“GIS, in full geographic information system, computer system for performing geographical analysis. GIS has four interactive components: an input subsystem for converting into digital form (digitizing) maps and other spatial data; a storage and retrieval subsystem; an analysis subsystem; and an output subsystem for producing maps, tables, and answers to geographic queries. GIS is frequently used by environmental and urban planners, marketing researchers, retail site analysts, water resource specialists, and other professionals whose work relies on maps.”(Britannica 2020)</p>
-
-
-							<p>Using this software we were able to process the data located in our Epicollect5 csv file to project it on a map and apply the PLOS/EPLOS formulas to finally visualize it on our map (presented on the previous section).</p>
+							<p>Data analysis can be seen as the most interesting part of the project, since here we elaborate and visualize the final result of our project. Data analysis was performed using QGIS, a free and open source  GIS software developed by Open Source Geospatial Foundation (OSGeo). Using QGIS we were able to process the data located in our Epicollect5 csv file to project it and compute PLOS/EPLOS formulas and, finally, to visualize results on the map.
+							</p>
 
 							<hr class="major" />
 
 							<h3>Data presentation</h3>
 
-							<p>The final step in our whole process was to present the data correctly to be visualized by the interested people. This results presentation is done through this website, where several technologies are involved:</p>
+							<p>The final step was to expose the results of the analysis through a website. This step required mastering several technologies, including:</p>
 
 							<div id="ul" style="list-style-type:none;">
 
@@ -125,13 +126,9 @@
 								<li>7. Map layers</li>
 							</div>
 
-							<p>After the collection and consolidation of all these technologies we obtain this project as a result, where everything comes to reality. Map interaction, information presentation and data visualization merge into one global technology assembly that works in a harmonious and efficient way.</p>
-
-
-
+							<p>After the collection and consolidation of all these technologies we obtained this web GIS, where everything works in a harmonious and efficient way.</p>
 						</div>
 					</section>				
-
 			</div>
 
 		<!-- Footer -->
