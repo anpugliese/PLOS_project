@@ -1,13 +1,17 @@
 var view = new ol.View({
-  center: ol.proj.fromLonLat([-84, -2]),
-  zoom: 6
+  center: ol.proj.fromLonLat([9.1722314,45.4929806]),
+  zoom: 14
 });
 
 var osm = new ol.layer.Tile({
+    title: 'OpenStreetMap',
+    type: 'base',
 	visible: true,
 	source: new ol.source.OSM()
 });
 var osm2 = new ol.layer.Tile({
+    title: 'OpenStreetMap',
+    type: 'base',
 	visible: true,
 	source: new ol.source.OSM()
 });
@@ -44,8 +48,16 @@ var stamenWatercolor = new ol.layer.Tile({
     })
 });
 var map = new ol.Map({
-	target: 'map',
-	layers: [osm, bingRoads, bingAerial],
+	target: 'map',	
+    layers: [new ol.layer.Group({
+            title: 'Base Maps',
+            layers: [osm, bingRoads, bingAerial]
+            }),
+            new ol.layer.Group({
+            title: 'PLOS',
+            layers: []
+            })
+            ],
 	view: view
 	// controls: ol.control.defaults().extend([
  //        new ol.control.ScaleLine(),
@@ -64,7 +76,15 @@ map.addControl(layerSwitcher);
 
 var map2 = new ol.Map({
 	target: 'map2',
-	layers: [osm2, stamenWatercolor],
+	layers: [new ol.layer.Group({
+            title: 'Base Maps',
+            layers: [osm2, bingRoads, bingAerial, stamenWatercolor]
+            }),
+            new ol.layer.Group({
+            title: 'EPLOS',
+            layers: []
+            })
+            ],
 	view: view
 });
 var layerSwitcher2 = new ol.control.LayerSwitcher({});
