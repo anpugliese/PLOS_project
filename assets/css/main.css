@@ -227,12 +227,12 @@
 
 
 	#map{
-		padding-top: 47px; 
+		
 		height: 600px;
 		width: 100%;
 	}
 	#map2{
-		padding-top: 47px; 
+		 
 		height: 600px;
 		width: 100%;
 	}
@@ -3955,3 +3955,14 @@
 			}
 
 		}
+
+.tryit{
+	background-color: white;
+	color: #258cd1!important;
+	font-size: 16px;
+	width: 300px;
+}
+.tryit:hover{
+	background-color: #5ca1cf;
+	color: white!important;
+}

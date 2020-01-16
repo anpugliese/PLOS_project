@@ -46,16 +46,16 @@ var stamenWatercolor = new ol.layer.Tile({
 var map = new ol.Map({
 	target: 'map',
 	layers: [osm, bingRoads, bingAerial],
-	view: view,
-	controls: ol.control.defaults().extend([
-        new ol.control.ScaleLine(),
-        new ol.control.FullScreen(),
-        new ol.control.OverviewMap(),
-        new ol.control.MousePosition({
-            coordinateFormat: ol.coordinate.createStringXY(4),
-            projection: 'EPSG:4326'
-        })
-    ])
+	view: view
+	// controls: ol.control.defaults().extend([
+ //        new ol.control.ScaleLine(),
+ //        new ol.control.FullScreen(),
+ //        new ol.control.OverviewMap(),
+ //        new ol.control.MousePosition({
+ //            coordinateFormat: ol.coordinate.createStringXY(4),
+ //            projection: 'EPSG:4326'
+ //        })
+ //    ])
 });
 var layerSwitcher = new ol.control.LayerSwitcher({});
 map.addControl(layerSwitcher);
@@ -67,5 +67,5 @@ var map2 = new ol.Map({
 	layers: [osm2, stamenWatercolor],
 	view: view
 });
-var layerSwitcher = new ol.control.LayerSwitcher({});
-map2.addControl(layerSwitcher);
+var layerSwitcher2 = new ol.control.LayerSwitcher({});
+map2.addControl(layerSwitcher2);
