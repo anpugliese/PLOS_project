@@ -1,7 +1,71 @@
+
 var view = new ol.View({
-  center: ol.proj.fromLonLat([9.1722314,45.4929806]),
-  zoom: 14
+  center: ol.proj.fromLonLat([9.18712,45.48790]),
+  zoom: 16.5
 });
+
+var stylesPLOS = {
+    'yellow': new ol.style.Style({
+        stroke: new ol.style.Stroke({
+            color: 'yellow',
+            width: 3
+        })
+    }),
+    'green': new ol.style.Style({
+        stroke: new ol.style.Stroke({
+            color: 'rgb(50,205,50)',
+            width: 3
+        })
+    })
+}
+
+
+var styleFunctionPLOS = function(feature) {
+
+  plosf = feature.get('PLOS');
+  var varcol
+
+  if (plosf < 2.5) {
+    varcol = 'green'
+  }
+  else {
+    varcol = 'yellow'
+    }
+
+  return stylesPLOS[varcol]
+};
+
+
+var stylesePLOS = {
+    'lightgreen': new ol.style.Style({
+        stroke: new ol.style.Stroke({
+            color: 'rgb(144,238,144)',
+            width: 3
+        })
+    }),
+    'green': new ol.style.Style({
+        stroke: new ol.style.Stroke({
+            color: 'rgb(50,205,50)',
+            width: 3
+        })
+    })
+}
+
+
+var styleFunctionePLOS = function(feature) {
+
+  plosf = feature.get('ePLOS');
+  var varcol
+
+  if (plosf < 2.28) {
+    varcol = 'green'
+  }
+  else {
+    varcol = 'lightgreen'
+    }
+
+  return stylesePLOS[varcol]
+};
 
 var osm = new ol.layer.Tile({
     title: 'OpenStreetMap',
@@ -15,12 +79,7 @@ var osm2 = new ol.layer.Tile({
 	visible: true,
 	source: new ol.source.OSM()
 });
-var ecuadorBoundary = new ol.layer.Image({
-	source: new ol.source.ImageWMS({
-	url: 'http://localhost:8082/geoserver/wms',
-	params: {'LAYERS': 'Ex_GeoServer:ECU_adm0'}
-	})
-});
+
 var bingRoads = new ol.layer.Tile({
     title: 'Bing Maps—Roads',
     type: 'base',
@@ -47,15 +106,103 @@ var stamenWatercolor = new ol.layer.Tile({
         layer: 'watercolor'
     })
 });
+var stamenToner = new ol.layer.Tile({
+    title: 'Stamen Toner',
+    type: 'base',
+    visible: false,
+    source: new ol.source.Stamen({
+        layer: 'toner'
+    })
+});
+
+
+
+
+var sourceLayerRoadLinks = new ol.source.Vector({
+    title: 'Road Links',
+    projection : 'EPSG:3857',
+    url: './assets/geojsonFiles/roadLinks.json',
+    format: new ol.format.GeoJSON()
+})
+
+var vectorLayerRoadLinks = new ol.layer.Vector({
+    title: 'Road Links',
+    source: sourceLayerRoadLinks,
+    opacity: 0.65,
+    style: new ol.style.Style({
+        stroke: new ol.style.Stroke({
+            color: 'rgb(240,128,128)',
+            width: 3
+        }),
+        fill: new ol.style.Fill({
+            color: 'rgb(240,128,128)'
+        })
+    })
+})
+
+
+var sourceLayerRoadLinkse = new ol.source.Vector({
+    title: 'Road Links',
+    projection : 'EPSG:3857',
+    url: './assets/geojsonFiles/roadLinks.json',
+    format: new ol.format.GeoJSON()
+})
+
+var vectorLayerRoadLinkse = new ol.layer.Vector({
+    title: 'Road Links',
+    source: sourceLayerRoadLinkse,
+    opacity: 0.65,
+    style: new ol.style.Style({
+        stroke: new ol.style.Stroke({
+            color: 'rgb(240,128,128)',
+            width: 3
+        }),
+        fill: new ol.style.Fill({
+            color: 'rgb(240,128,128)'
+        })
+    })
+})
+
+
+
+var sourceLayerPLOS = new ol.source.Vector({
+    title: 'PLOS',
+    projection : 'EPSG:3857',
+    url: './assets/geojsonFiles/PLOS.json',
+    format: new ol.format.GeoJSON()
+})
+
+var vectorLayerPLOS = new ol.layer.Vector({
+    title: 'PLOS',
+    source: sourceLayerPLOS,
+    style: styleFunctionPLOS
+})
+
+
+var sourceLayerePLOS = new ol.source.Vector({
+    title: 'ePLOS',
+    projection : 'EPSG:3857',
+    url: './assets/geojsonFiles/ePLOS.json',
+    format: new ol.format.GeoJSON()
+})
+
+var vectorLayerePLOS = new ol.layer.Vector({
+    title: 'PLOS',
+    source: sourceLayerePLOS,
+    style: styleFunctionePLOS
+})
+
+
+
 var map = new ol.Map({
 	target: 'map',	
     layers: [new ol.layer.Group({
             title: 'Base Maps',
-            layers: [osm, bingRoads, bingAerial]
+            layers: [osm, bingRoads, bingAerial, stamenToner]
             }),
             new ol.layer.Group({
             title: 'PLOS',
-            layers: []
+            layers: [vectorLayerRoadLinks, vectorLayerPLOS]
             })
             ],
 	view: view
@@ -78,11 +225,11 @@ var map2 = new ol.Map({
 	target: 'map2',
 	layers: [new ol.layer.Group({
             title: 'Base Maps',
-            layers: [osm2, bingRoads, bingAerial, stamenWatercolor]
+            layers: [osm2, bingRoads, bingAerial, stamenToner]
             }),
             new ol.layer.Group({
             title: 'EPLOS',
-            layers: []
+            layers: [vectorLayerRoadLinkse, vectorLayerePLOS]
             })
             ],
 	view: view
