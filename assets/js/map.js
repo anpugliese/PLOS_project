@@ -275,6 +275,7 @@ map.on('click', function(event) {
     });
 
     if (feature != null) {
+        $(elementPopup).popover('destroy');
         var pixel = event.pixel;
         var coord = map.getCoordinateFromPixel(pixel);
         var street = streetname
@@ -286,7 +287,14 @@ map.on('click', function(event) {
     }
 });
 
-
+map.on('pointermove', function(event) {
+if (event.dragging) {
+$(elementPopup).popover('destroy');
+return;
+}
+var pixel = map.getEventPixel(event.originalEvent);
+var hit = map.hasFeatureAtPixel(pixel);
+});
 
 
 //-------------------------------------------
@@ -306,6 +314,7 @@ map2.on('click', function(event) {
     });
 
     if (feature != null) {
+        $(elementPopupe).popover('destroy');
         var pixel = event.pixel;
         var coord = map2.getCoordinateFromPixel(pixel);
         var street = streetname
@@ -315,6 +324,15 @@ map2.on('click', function(event) {
         $(elementPopupe).popover({'placement': 'top', 'html': true});
         $(elementPopupe).popover('show');
     }
+});
+
+map2.on('pointermove', function(event) {
+if (event.dragging) {
+$(elementPopupe).popover('destroy');
+return;
+}
+var pixel = map.getEventPixel(event.originalEvent);
+var hit = map.hasFeatureAtPixel(pixel);
 });
 
 
