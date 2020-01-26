@@ -1,20 +1,20 @@
-
 var view = new ol.View({
   center: ol.proj.fromLonLat([9.18712,45.48790]),
   zoom: 16.5
 });
 
+
 var stylesPLOS = {
     'yellow': new ol.style.Style({
         stroke: new ol.style.Stroke({
             color: 'yellow',
-            width: 3
+            width: 5
         })
     }),
     'green': new ol.style.Style({
         stroke: new ol.style.Stroke({
             color: 'rgb(50,205,50)',
-            width: 3
+            width: 5
         })
     })
 }
@@ -35,18 +35,23 @@ var styleFunctionPLOS = function(feature) {
   return stylesPLOS[varcol]
 };
 
+var streetname = function(feature) {
+    street = feature.get('roadname');
+    return 'street'
+}
+
 
 var stylesePLOS = {
     'lightgreen': new ol.style.Style({
         stroke: new ol.style.Stroke({
             color: 'rgb(144,238,144)',
-            width: 3
+            width: 5
         })
     }),
     'green': new ol.style.Style({
         stroke: new ol.style.Stroke({
             color: 'rgb(50,205,50)',
-            width: 3
+            width: 5
         })
     })
 }
@@ -70,14 +75,14 @@ var styleFunctionePLOS = function(feature) {
 var osm = new ol.layer.Tile({
     title: 'OpenStreetMap',
     type: 'base',
-	visible: true,
-	source: new ol.source.OSM()
+    visible: true,
+    source: new ol.source.OSM()
 });
 var osm2 = new ol.layer.Tile({
     title: 'OpenStreetMap',
     type: 'base',
-	visible: true,
-	source: new ol.source.OSM()
+    visible: true,
+    source: new ol.source.OSM()
 });
 
 var bingRoads = new ol.layer.Tile({
@@ -169,12 +174,17 @@ var sourceLayerPLOS = new ol.source.Vector({
     title: 'PLOS',
     projection : 'EPSG:3857',
     url: './assets/geojsonFiles/PLOS.json',
-    format: new ol.format.GeoJSON()
+    format: new ol.format.GeoJSON(),
 })
 
 var vectorLayerPLOS = new ol.layer.Vector({
     title: 'PLOS',
-    source: sourceLayerPLOS,
+    source: new ol.source.Vector({
+        title: 'PLOS',
+        projection : 'EPSG:3857',
+        url: './assets/geojsonFiles/PLOS.json',
+        format: new ol.format.GeoJSON()
+    }),
     style: styleFunctionPLOS
 })
 
@@ -195,7 +205,7 @@ var vectorLayerePLOS = new ol.layer.Vector({
 
 
 var map = new ol.Map({
-	target: 'map',	
+    target: 'map',  
     layers: [new ol.layer.Group({
             title: 'Base Maps',
             layers: [osm, bingRoads, bingAerial, stamenToner]
@@ -205,16 +215,16 @@ var map = new ol.Map({
             layers: [vectorLayerRoadLinks, vectorLayerPLOS]
             })
             ],
-	view: view
-	// controls: ol.control.defaults().extend([
- //        new ol.control.ScaleLine(),
- //        new ol.control.FullScreen(),
- //        new ol.control.OverviewMap(),
- //        new ol.control.MousePosition({
- //            coordinateFormat: ol.coordinate.createStringXY(4),
- //            projection: 'EPSG:4326'
- //        })
- //    ])
+    view: view,
+     controls: ol.control.defaults().extend([
+         new ol.control.ScaleLine(),
+         //new ol.control.FullScreen(),
+         new ol.control.OverviewMap(),
+         new ol.control.MousePosition({
+             coordinateFormat: ol.coordinate.createStringXY(4),
+             projection: 'EPSG:4326'
+         })
+     ])
 });
 var layerSwitcher = new ol.control.LayerSwitcher({});
 map.addControl(layerSwitcher);
@@ -222,8 +232,8 @@ map.addControl(layerSwitcher);
 
 
 var map2 = new ol.Map({
-	target: 'map2',
-	layers: [new ol.layer.Group({
+    target: 'map2',
+    layers: [new ol.layer.Group({
             title: 'Base Maps',
             layers: [osm2, bingRoads, bingAerial, stamenToner]
             }),
@@ -232,7 +242,84 @@ var map2 = new ol.Map({
             layers: [vectorLayerRoadLinkse, vectorLayerePLOS]
             })
             ],
-	view: view
+    view: view,
+     controls: ol.control.defaults().extend([
+         new ol.control.ScaleLine(),
+         //new ol.control.FullScreen(),
+         new ol.control.OverviewMap(),
+         new ol.control.MousePosition({
+             coordinateFormat: ol.coordinate.createStringXY(4),
+             projection: 'EPSG:4326'
+         })
+     ])
 });
 var layerSwitcher2 = new ol.control.LayerSwitcher({});
 map2.addControl(layerSwitcher2);
+
+
+
+
+//----------------------------------
+
+var elementPopup = document.getElementById('popup');
+
+var popup = new ol.Overlay({
+    element: elementPopup
+});
+
+map.addOverlay(popup);
+
+map.on('click', function(event) {
+    var feature = map.forEachFeatureAtPixel(event.pixel, function(feature, layer) {
+        return feature;
+    });
+
+    if (feature != null) {
+        var pixel = event.pixel;
+        var coord = map.getCoordinateFromPixel(pixel);
+        var street = streetname
+        popup.setPosition(coord);
+        $(elementPopup).attr('title', feature.get('roadname'));
+        $(elementPopup).attr('data-content', '<b>PLOS: </b>' + feature.get('PLOS') );
+        $(elementPopup).popover({'placement': 'top', 'html': true});
+        $(elementPopup).popover('show');
+    }
+});
+
+
+
+
+//-------------------------------------------
+
+
+var elementPopupe = document.getElementById('popup2');
+
+var popupe = new ol.Overlay({
+    element: elementPopupe
+});
+
+map2.addOverlay(popupe);
+
+map2.on('click', function(event) {
+    var feature = map2.forEachFeatureAtPixel(event.pixel, function(feature, layer) {
+        return feature;
+    });
+
+    if (feature != null) {
+        var pixel = event.pixel;
+        var coord = map2.getCoordinateFromPixel(pixel);
+        var street = streetname
+        popupe.setPosition(coord);
+        $(elementPopupe).attr('title', feature.get('roadname'));
+        $(elementPopupe).attr('data-content', '<b>ePLOS: </b>' + feature.get('ePLOS') );
+        $(elementPopupe).popover({'placement': 'top', 'html': true});
+        $(elementPopupe).popover('show');
+    }
+});
+
+
+
+
+
+
+

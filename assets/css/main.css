@@ -253,8 +253,9 @@
 	}
 
 	.popover {
-	width: 200px;
-	height: auto;
+		width: 200px;
+		height: auto;
+		font-size: 15px;
 	}
 /* Grid */
 
