@@ -1,0 +1,154 @@
+<!DOCTYPE HTML>
+<!--
+	Urban by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<meta charset="utf-8" />
+	<head>
+		<title>GISLAB</title>
+		<script src="libraries/jquery-3.4.1.min.js"></script>
+		<link rel="stylesheet" href="libraries/v6.1.1/css/ol.css"> 
+		<script src="libraries/v6.1.1/build/ol.js"></script>
+		<link rel="stylesheet" href="libraries/v6.1.1/apidoc/styles/bootstrap.min.css" type="text/css">
+		<script src="libraries/v6.1.1/apidoc/scripts/bootstrap.min.js"></script>
+		<script src="https://rawgit.com/walkermatt/ol-layerswitcher/master/dist/ol-layerswitcher.js"></script>
+		<link rel="stylesheet" href="https://rawgit.com/walkermatt/ol-layerswitcher/master/src/ol-layerswitcher.css">
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body>
+
+
+		<!-- Header -->
+			<header id="header">
+				<div class="logo"><a href="index.html">GISLAB</a></div>	
+			<nav>
+				<ul>
+				  <li><a href="PLOS.html">WEBGIS</a></li>
+				  <li><a href="considerations.html">Project Workflow</a></li>
+				  <li><a href="about.html">About us</a></li>
+				</ul> 
+			</nav>	
+			</header>
+
+			<div class="flex flex-2">
+				
+				<div class="col align-center">
+					<h4 style="padding-top: 70px">PLOS</h4>
+					<div id="map">
+						<div id="popup"></div>
+					</div>											
+				</div>
+
+				<div class="col align-center">	
+					<h4 style="padding-top: 70px">EPLOS</h4>
+					<div id="map2">
+						<div id="popup2"></div>
+					</div>												
+				</div>
+			</div>	
+
+			
+		<!-- Main -->
+			<div id="main">
+				<section class="wrapper style1">
+					<div class="inner">
+
+						
+						<hr class="major" />
+						<!-- Content -->
+						<div class="flex flex-2">
+							<div class="col align-left">
+							<h2 id="content">Pedestrian Level of Service</h2>
+							<p>The Pedestrian Level of service (PLOS) model is aimed exactly at assessing the quality of the pedestrian infrastructure, allowing city planners to be aware of the current status of the walking conditions on road and street corridors.</p>
+
+							<p>The PLOS is a qualitative measure of quality of the walkways and it leads to an objective and sound evaluations of pedestrians’ perception and response to roadway environment. The model focuses primarily on the characteristics of the road infrastructure, taking into account a number of parameters, such as width of sidewalk, number of vehicular lanes, traffic volume and traffic speed, presence of buffers or bike lanes etc., and it returns a numerical value that summarizes the overall quality of the pedestrian infrastructure, the lower the output value the  better quality of the infrastructure.</p>
+
+							<p>Enhanced Pedestrian Level of Service (EPLOS) includes some improvements on the model such as presence of lightnings, public services, curb ramps etc. on the point of interest. This enhancement on the model can show us the importance of having these features on the quality of pedestrian life. </p>
+						</div>
+
+						<div class="col align-left">
+							
+							<div class="table-wrapper">
+								<table class="alt">
+									<thead>
+										<tr>
+											<th>Grade</th>
+											<th>Description</th>
+											<th>Range</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td style="color: #34eb34; font-weight: 1000; text-align: center;">A</td>
+											<td>Highly pedestrian oriented environment, ample sidewalk space.</td>
+											<td>≤ 2</td>
+										</tr>
+										<tr>
+											<td style="color: #93eb34; font-weight: 1000; text-align: center;">B</td>
+											<td>Streets with many pedestrian safety and comfort features.</td>
+											<td>>2 and ≤2.75</td>
+										</tr>
+										<tr>
+											<td style="color: #e8eb34; font-weight: 1000; text-align: center;">C</td>
+											<td> Standard sidewalk, some deficiencies in pedestrian facility design and/or higher vehicle traffic.</td>
+											<td>>2.75 and ≤3.5</td>
+										</tr>
+										<tr>
+											<td style="color: #eb9334; font-weight: 1000; text-align: center;">D</td>
+											<td>Streets adequate for pedestrian use but has frequent deficiencies for width and clearance.</td>
+											<td>>3.5 and ≤4.25</td>
+										</tr>
+										<tr>
+											<td style="color: #eb3434; font-weight: 1000; text-align: center;">E</td>
+											<td>Streets inadequate for pedestrian use, high level of interaction with traffic.</td>
+											<td>>4.25 and ≤5</td>
+										</tr>
+										<tr>
+											<td style="color: #9334eb; font-weight: 1000; text-align: center;">F</td>
+											<td>Extremely car oriented environment, roads preliminary designed for high volumes traffic.</td>
+											<td>>5</td>
+										</tr>
+									</tbody>									
+								</table>
+							</div>
+						</div>
+						<section class="wrapper style1">
+							<div class="inner">
+								<hr class="major" />
+								<h3>How to calculate the numerical values of PLOS and EPLOS?<h3>
+
+									<img src="images/images/PLOS.JPG" alt="" height="300"/>
+
+									<h5>EPLOS calculation<h5>
+
+										<p>The EPLOS is calculated by
+											using the PLOS and a separated
+											calculation related to the added
+											parameters (pedestrian crossings, point of interest, public transport stops, public services, curb ramps and lighting);
+											<p>*For each parameter use 0 if not present,
+											0.125 if present;<p>
+											<p>*Subtract all parameters to the PLOS
+											(maximum 0.75, minimum 0).<p>
+
+					</div>
+								
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="copyright">					
+					<p>&copy; GIS Polimi. All rights reserved. Design: <a href="https://templated.co">TEMPLATED</a></p>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/map.js"></script>
+			<script src="assets/js/main.js"></script>
+
+			
+
+	</body>
+</html>
