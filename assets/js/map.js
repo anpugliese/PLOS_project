@@ -178,7 +178,7 @@ var sourceLayerPLOS = new ol.source.Vector({
 })
 
 var vectorLayerPLOS = new ol.layer.Vector({
-    title: 'PLOS',
+    title: null,
     source: new ol.source.Vector({
         title: 'PLOS',
         projection : 'EPSG:3857',
@@ -190,14 +190,14 @@ var vectorLayerPLOS = new ol.layer.Vector({
 
 
 var sourceLayerePLOS = new ol.source.Vector({
-    title: 'ePLOS',
+    title: 'EPLOS',
     projection : 'EPSG:3857',
     url: './assets/geojsonFiles/ePLOS.json',
     format: new ol.format.GeoJSON()
 })
 
 var vectorLayerePLOS = new ol.layer.Vector({
-    title: 'PLOS',
+    title: null,
     source: sourceLayerePLOS,
     style: styleFunctionePLOS
 })
@@ -212,7 +212,7 @@ var map = new ol.Map({
             }),
             new ol.layer.Group({
             title: 'PLOS',
-            layers: [vectorLayerRoadLinks, vectorLayerPLOS]
+            layers: [vectorLayerPLOS]
             })
             ],
     view: view,
@@ -239,7 +239,7 @@ var map2 = new ol.Map({
             }),
             new ol.layer.Group({
             title: 'EPLOS',
-            layers: [vectorLayerRoadLinkse, vectorLayerePLOS]
+            layers: [vectorLayerePLOS]
             })
             ],
     view: view,
