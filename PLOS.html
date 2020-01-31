@@ -16,6 +16,8 @@
 		<script src="https://unpkg.com/ol-layerswitcher@3.5.0"></script>
 		<link rel="stylesheet" href="https://unpkg.com/ol-layerswitcher@3.5.0/src/ol-layerswitcher.css">
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+		<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 	</head>
 	<body>
 
@@ -119,21 +121,100 @@
 						<section class="wrapper style1">
 							<div class="inner">
 								<hr class="major" />
-								<h3>How to calculate the numerical values of PLOS and EPLOS?<h3>
-
-									<img src="images/images/PLOS.JPG" alt="" height="350"/>
+								<h3>How to calculate the numerical values of PLOS and EPLOS?</h3>
+								
+								<h4>PLOS calculation<h4>
+								<div class="align-center">
 									<img height="250" alt="" src="images/images/Road.JPG">
+								</div>
+								<br />
+								<h4 >PLOS = 6.0468 + 0.0091 * (\(V_m \over 4*N_{th}\)) + 4*(\(S_R \over 100\))^2 - 1.2276 * \(ln ( W_v + 0.5 W_1 + 50 P_{pk} + W_{buf} * f_b + W_{aA} * fsw)\)
+								</h4>
+								<br />
+								<div class="align-center">
+								<div class="table-wrapper">
+									<table class="alt">
+									<thead>
+										<tr>
+											<th>Number</th>
+											<th>Variable</th>
+											<th>Description</th>
+											<th>Unit</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td >1#</td>
+											<td>Vm</td>
+											<td>Mid-segmet analysis-hour directional motorized vehicle demand flow rate nearest to the subject sidewalk</td>
+											<td>No. veh/h</td>
+										</tr>
+										<tr>
+											<td >2#</td>
+											<td>Nth</td>
+											<td>Number of through lanes in the subject direction of travel</td>
+											<td>No. lanes</td>
+										</tr>
+										<tr>
+											<td >3#</td>
+											<td>Sr</td>
+											<td>Motorized vehicle running speed</td>
+											<td>km/h to be converted to mph</td>
+										</tr>
+										<tr>
+											<td >4#</td>
+											<td>Wv</td>
+											<td>Width of the outside lane + width of shoulder</td>
+											<td>meter to be converted to feet</td>
+										</tr>
+										<tr>
+											<td>5#</td>
+											<td>W1</td>
+											<td>Width bike lane + width shoulder</td>
+											<td>meter to be converted to feet</td>
+										</tr>
+										<tr>
+											<td >6#</td>
+											<td>Ppk</td>
+											<td>Parking occupancy = proportion of parallel on-street parking occupied in the analyzed period</td>
+											<td>Decimal</td>
+										</tr>
+										<tr>
+											<td >7#</td>
+											<td>Wbuf</td>
+											<td>Buffer width between roadwalk and sidewalk</td>
+											<td>Meter to be converted to feet</td>
+										</tr>
+										<tr>
+											<td></td>
+											<td>fb</td>
+											<td>Buffer contunuity coefficient</td>
+											<td>-</td>
+										</tr>
+										<tr>
+											<td>8#</td>
+											<td>WaA</td>
+											<td>Sidewalk width</td>
+											<td>Meter to be converted to feet</td>
+										</tr>
+										<tr>
+											<td></td>
+											<td>fsw</td>
+											<td>Sidewalk adjusted with coefficient</td>
+											<td>-</td>
+										</tr>
+									</tbody>									
+								</table>
+							</div>
+							</div>
+							
 
-									<h5>EPLOS calculation<h5>
+							<h4>EPLOS calculation<h4>
 
-										<p>The EPLOS is calculated by
-											using the PLOS and a separated
-											calculation related to the added
-											parameters (pedestrian crossings, point of interest, public transport stops, public services, curb ramps and lighting);
-											<p>*For each parameter use 0 if not present,
-											0.125 if present;<p>
-											<p>*Subtract all parameters to the PLOS
-											(maximum 0.75, minimum 0).<p>
+							<p>The EPLOS is calculated by using the PLOS and a separated
+							calculation related to the added parameters (pedestrian crossings, point of interest, public transport stops, public services, curb ramps and lighting).</p>
+							<p>*For each parameter use 0 if not present, 0.125 if present</p>
+							<p>*Subtract all parameters to the PLOS	(maximum 0.75, minimum 0).</p>
 
 					</div>
 								

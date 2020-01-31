@@ -34,6 +34,8 @@
 								<h3>Data Processing</h3>
 								<p>The second step in our workflow was data processing. We started by downloading the sampled data in csv format from Epicollect5 website. In fact, since point measurements were recorded by each of us using her/his Epicollect5 account, four separate csv files were downloaded and then merged.
 								</p>
+								<p>Data processing was probably the most interesting part of our project, since here we got to apply the knowledge and skills learnt during the Geographical Information System course. Data processing was performed in QGIS 3.4, a free and open source GIS software developed by Open Source Geospatial Foundation (OSGeo). Using QGIS we were able to process the collected data, to visualize this information and, finally, to compute PLOS and E-PLOS models.</p>
+
 								<p>In QGIS 3.4, we created a new project and added the merged csv file as a delimited text layer in order to visualize the collected data points above the layer of surveyed street segments (source: Systematica) and Open Street Map basemap.
 								</p>
 								<div class="col align-center">
@@ -44,6 +46,9 @@
 								</p>
 								<p>Note that some points fall off the street segments which they refer to because of the limited geopositioning accuracy of our mobile phone devices during the data collection process. The average accuracy in position of our sampled points was 12 meters. This suggested editing the position of these points close enough to the respective street segments in order have an intersection between the two layers.
 								</p>
+								<p>Data related to the public services (e.g. schools, pharmacies, post offices, etc.) were provided in a csv file by Politecnico di Milano. These data, however, did not have geographical coordinates assigned but only their street addresses, so we had to geocode this information before being able to visualize the points on the map. This operation was performed with Geocode, a function in MMQGIS plugin for QGIS.</p>
+								<p>The next step in our data processing was to create a different layer for each of the data type collected and to join this information with the one provided by Systematica and Politecnico di Milano. We computed a buffer around every street segment using the Buffer function available in QGIS Geoprocessing Tools. The buffer had to be of wide enough to cover all the collected points. Once data points were properly placed and buffers computed, we used the Join Attribute by Location function in QGIS Data Management Tools to assigned to each street segment the measured value. This operation was repeated for every data type layer, the pictures below show an example of joining by location performed on width of sidewalk and road buffer layers.</p>
+
 						</div>
 					</section>				
 			</div>

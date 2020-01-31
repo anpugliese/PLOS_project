@@ -268,6 +268,19 @@
     height:100px; 
     background-color:#FFFFFF;
 	}
+	.layer-switcher.shown .panel {
+    display: block!important;
+    width: 380px!important;
+	}
+
+	.layer-switcher .panel {
+	    float: right!important;
+	}
+
+	.layer-switcher li.layer {
+	    width: 100%!important;
+		display: block!important;
+	}
 /* Grid */
 
 	.row {
