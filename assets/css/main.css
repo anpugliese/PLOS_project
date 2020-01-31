@@ -259,6 +259,15 @@
 		height: auto;
 		font-size: 15px;
 	}
+	#legend{
+    position:absolute; 
+    right:10px; 
+    bottom:10px; 
+    z-index:10000; 
+    width:100px; 
+    height:100px; 
+    background-color:#FFFFFF;
+	}
 /* Grid */
 
 	.row {
