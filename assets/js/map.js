@@ -217,9 +217,9 @@ var map = new ol.Map({
             ],
     view: view,
      controls: ol.control.defaults().extend([
-         new ol.control.ScaleLine(),
-         //new ol.control.FullScreen(),
-         new ol.control.OverviewMap(),
+         //new ol.control.ScaleLine(),
+         new ol.control.FullScreen(),
+         //new ol.control.OverviewMap(),
          new ol.control.MousePosition({
              coordinateFormat: ol.coordinate.createStringXY(4),
              projection: 'EPSG:4326'
@@ -244,9 +244,9 @@ var map2 = new ol.Map({
             ],
     view: view,
      controls: ol.control.defaults().extend([
-         new ol.control.ScaleLine(),
-         //new ol.control.FullScreen(),
-         new ol.control.OverviewMap(),
+         //new ol.control.ScaleLine(),
+         new ol.control.FullScreen(),
+         //new ol.control.OverviewMap(),
          new ol.control.MousePosition({
              coordinateFormat: ol.coordinate.createStringXY(4),
              projection: 'EPSG:4326'

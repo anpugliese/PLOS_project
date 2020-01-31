@@ -12,8 +12,8 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<link rel="stylesheet" href="libraries/v6.1.1/css/ol.css"> 
 		<script src="libraries/v6.1.1/build/ol.js"></script>
-		<script src="https://rawgit.com/walkermatt/ol-layerswitcher/master/dist/ol-layerswitcher.js"></script>
-		<link rel="stylesheet" href="https://rawgit.com/walkermatt/ol-layerswitcher/master/src/ol-layerswitcher.css">
+		<script src="https://unpkg.com/ol-layerswitcher@3.5.0"></script>
+		<link rel="stylesheet" href="https://unpkg.com/ol-layerswitcher@3.5.0/src/ol-layerswitcher.css">
 		<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 		<script src="libraries/v6.1.1/apidoc/scripts/bootstrap.min.js"></script>
 	</head>
@@ -25,7 +25,8 @@
 			<nav>
 				<ul>
 				  <li><a href="PLOS.html">WEBGIS</a></li>
-				  <li><a href="considerations.html">Project Workflow</a></li>
+				  <li><a href="considerations.html">Data Collection</a></li>
+				  <li><a href="process.html">Data Processing</a></li>
 				  <li><a href="about.html">About us</a></li>
 				</ul> 
 			</nav>
@@ -34,123 +35,108 @@
 
 		<!-- Main -->
 			<div id="main">
-
-				<!-- Section -->
-					<section class="wrapper">
-						<div class="inner">
-							<div class="flex flex-2">
-									<div class="col col1">
-										<div class="align-center">
-											<img src="images/Layer2_GIS.png" alt="" height="300" /></a>
-										</div>
-									</div>
-									<div class="col col2">
-										
-										<h4 style="font-style: italic; padding-top: 50px; font-weight: 500; font-size: 20px">Nowadays, the <b>Geographic Information Systems</b> have evolved and developed in a way that technologies are available for many people, facilitating the processing and analysis of geographic data.
-
-										</h4>
-
-										<h4 style="font-style: italic; font-weight: 500; font-size: 20px">The development of this project involved the use of many technologies for the <b>data collection</b>, <b>processing</b> and <b>analysis</b> that, altogether, have allowed us to describe the <b>walkability</b> of  “Isola”, a neighbor in Municipio 9, Milan, Italy.
-										</h4>
-																												
-									</div>	
-															
-																								
-							</div>
-						</div>
-					</section>
-					<section class="wrapper style2">
+				<br  style="margin: 30px"/>
+					<section class="wrapper style">
 						<div class="inner">
 							
-							<div class="flex flex-2">
-								<div class="col col2">
+							<div class="major">
+							
 									<h3>Data Collection</h3>
-									<p>Data collection is the first and one of the most delicate and expensive steps in any GIS project as it involves on-field surveying, a time consuming task.</p>
+									<p>The first step in our workflow was data collection. We went to “Isola” – the neighborhood of Milan assigned to our team – on December 2nd, 2019 and performed direct on street measurements. Data collection took us 2 hours approximately.</p>
 
-									<p>
-									Data collection was performed directly at the site that was designated to us, by going into each street and filling all the data, together with GPS coordinates, inside the Epicollect5, a mobile application also used and supported by the Center for Genomic Pathogen, University of Oxford and the British Big Data Institute. 
-
-									</p>
-									<p>The data we collected included: number of lanes, on street parking, buffer, width of sidewalk, curb ramps, lightings, width of bike lanes and shoulders. For each data entry time, GPS coordinates and accuracy were also recorded by Epicollect5.
-									</p>
+									<p>Since data collection implied to walk along every street and we were a team of four people, we subdivided the area that had to be sampled into two zones of roughly equal size. After surveying the first street segment all of us together to ensure a common measurement methodology, each pair was assigned a zone. This approach allowed us to halve data collection time while retaining homogeneity in data.
+									</p>							
+																
+							</div>
+							<div class="flex flex-2">				
+								<div class="col align-center">
+									<img style="padding-top: 20px" src="im1.jpg" alt="" height="350" />
+																				
 								</div>
-								<div class="col col1 first">
-									<div class="align-center">
-										<img style="padding-top: 50px" src="images/epi.png" alt="" height="280" /></a>
-									</div>
+
+								<div class="col align-center">	
+									<img style="padding-top: 20px" src="im2.jpg" alt="" height="350" />					
 								</div>
 							</div>
-							
-							
-							<hr class="major" />
-							<h3>Data transfer</h3>
-							<p>Data transfer was a simple task that we performed by using Epicollect5 mobile application.  Once the field data collection was concluded, it was uploaded to Epicollect5 cloud service and then downloaded as a csv format to our computers. 
-							Since the points were collected by each of us using her/his Epicollect5 account, the data transfer consisted of 4 different csv files which, later, had to be merged before processing.
-
+							<br style="margin: 25px"/>
+							<p>Since our goal was to assess the comfort and safety of the existing pedestrian infrastructure by means of PLOS and Enhanced PLOS models, for each segment in the assigned street network we surveyed the following variables:
 							</p>
-							<hr class="major" />
-							<div class="flex flex-2">
-								<div class="col col2">
-									<h3>Data processing</h3>
-									<p>This step was certainly the most challenging of the whole process, not only because of the number of actions involved, but also due to the fact that some data cleaning was required, a task that could not be completely automated. </p>
-									<p>
-									The main steps in our data processing were:
-									</p>
-									
-									<div id="ul" style="list-style-type:none; font-size: 15px;">
-										<li>1. Download data</li>
-										<li>2. Merge data into a unique file</li>
-										<li>3. Check data consistency</li>
-										<li>4. Import data to QGIS</li>
-										<li>5. Display data in QGIS</li>
-										<li>6. Improve data quality (e.g. manual relocation of points that were misplaced due to low accuracy)</li>
-
-									</div>
+							<div class="align-center">
+							<div class="table-wrapper">
+								<table class="alt">
+									<thead>
+										<tr>
+											<th>Name</th>
+											<th>Description</th>
+											<th>Unit</th>
+											<th>Type / Allowed values</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td >Waa</td>
+											<td>Sidewalk width</td>
+											<td>Meter</td>
+											<td>Real</td>
+										</tr>
+										<tr>
+											<td >Wbuff</td>
+											<td>Buffer width</td>
+											<td>Meter</td>
+											<td>Real</td>
+										</tr>
+										<tr>
+											<td >W1</td>
+											<td>Bike lane + shoulder width</td>
+											<td>Meter</td>
+											<td>Real</td>
+										</tr>
+										<tr>
+											<td >Ppk</td>
+											<td>On-street parking</td>
+											<td>-</td>
+											<td>Discrete / not allowed = 0.00; allowed half-occupied = 0.50; allowed full-occupied = 1.00</td>
+										</tr>
+										<tr>
+											<td>L</td>
+											<td>Street lighting</td>
+											<td>-</td>
+											<td>Discrete / present = 0.125, not present = 0.00</td>
+										</tr>
+										<tr>
+											<td >CR</td>
+											<td>Curb ramps</td>
+											<td>-</td>
+											<td>Discrete present = 0.125, not present = 0.00</td>
+										</tr>
+										<tr>
+											<td >Nth</td>
+											<td>Number of lanes</td>
+											<td>-</td>
+											<td>Discrete</td>
+										</tr>
+									</tbody>									
+								</table>
+							</div>
+							</div>
+							<p>Data measurements were recorded on Epicollect5 – a mobile and web application for free and easy data collection developed and maintained by Imperial College London – by filling a predesigned form. For each surveying point the phone device was geolocalized and its position coordinates and accuracy recorded on Epicollect5. We repeated the glocalization process until reaching an accuracy of no more than 20 meters. 
+							</p>
+							<div class="flex flex-2">				
+								<div class="col align-center">
+									<img style="padding-top: 20px" src="ep1.jpg" alt="" height="350" />							
 								</div>
-								<div class="col col1 first">
-									<div class="align-center">
-										<img style="padding-top: 100px" src="images/qgis.png" alt="" height="300" />
-									
-									</div>
+
+								<div class="col align-center">	
+									<img style="padding-top: 20px" src="ep2.jpg" alt="" height="350" />	
 								</div>
 							</div>
-							<hr class="major" />
-							
-							<h3>Data Analysis</h3>
-
-							<p>Data analysis can be seen as the most interesting part of the project, since here we elaborate and visualize the final result of our project. Data analysis was performed using QGIS, a free and open source  GIS software developed by Open Source Geospatial Foundation (OSGeo). Using QGIS we were able to process the data located in our Epicollect5 csv file to project it and compute PLOS/EPLOS formulas and, finally, to visualize results on the map.
+							<p>Collected data were later download in csv format from Epicollect5 website, under the project folder GISlab_2019_PLOS. Since the data points were collected by each of us using her/his Epicollect5 account four different csv files had to be download and then merged before the next step of data processing.
 							</p>
-
-							<hr class="major" />
-							<div class="flex flex-2">
-								<div class="col col2">
-
-									<h3>Data presentation</h3>
-
-									<p>The final step was to expose the results of the analysis through a website. This step required mastering several technologies, including:</p>
-
-									<div id="ul" style="list-style-type:none; font-size: 15px;">
-
-										<li>1. HTML web page programming</li>
-										<li>2. CSS website styling</li>
-										<li>3. Java script</li>
-										<li>4. Geoserver storage and implementation</li>
-										<li>5. GeoJson files visualization</li>
-										<li>6. GitHub files hosting and visualization</li>
-										<li>7. Map layers</li>
-									</div>
-									<br />
-
-									<p>After the collection and consolidation of all these technologies we obtained this web GIS, where everything works in a harmonious and efficient way.</p>
-								</div>
-								<div class="col col1 first">
-									<div class="align-center">
-										<img style="padding-top: 50px" src="images/hcj.png" alt="" height="350" />
-										
-									</div>
-								</div>
-
-						</div>
+							<p>The other data for PLOS and Enhanced PLOS calculation (traffic volume, vehicular speed, pedestrian crossings, points of interest, public transports stops, public services) were provided to us by Systematica or Politecnico di Milano. Finally, we assumed a fixed width of 3.5 m for the outside lane that serves vehicles traveling along the street segment.</p>
+						</div>	
+							
+							
+							
 					</section>				
 			</div>
 

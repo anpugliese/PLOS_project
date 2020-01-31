@@ -1,0 +1,68 @@
+<head>
+		<title>GISLAB</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="libraries/v6.1.1/css/ol.css"> 
+		<script src="libraries/v6.1.1/build/ol.js"></script>
+		<script src="https://unpkg.com/ol-layerswitcher@3.5.0"></script>
+		<link rel="stylesheet" href="https://unpkg.com/ol-layerswitcher@3.5.0/src/ol-layerswitcher.css">
+		<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+		<script src="libraries/v6.1.1/apidoc/scripts/bootstrap.min.js"></script>
+	</head>
+	<body>
+
+		<!-- Header -->
+			<header id="header">
+				<div class="logo"><a href="index.html">GISLAB</a></div>	
+			<nav>
+				<ul>
+				  <li><a href="PLOS.html">WEBGIS</a></li>
+				  <li><a href="considerations.html">Data Collection</a></li>
+				  <li><a href="process.html">Data Processing</a></li>
+				  <li><a href="about.html">About us</a></li>
+				</ul> 
+			</nav>
+								
+			</header>
+
+		<!-- Main -->
+			<div id="main">				
+					<section class="wrapper style">
+						<div class="inner">			
+							<hr class="major" />
+								<h3>Data Processing</h3>
+								<p>The second step in our workflow was data processing. We started by downloading the sampled data in csv format from Epicollect5 website. In fact, since point measurements were recorded by each of us using her/his Epicollect5 account, four separate csv files were downloaded and then merged.
+								</p>
+								<p>In QGIS 3.4, we created a new project and added the merged csv file as a delimited text layer in order to visualize the collected data points above the layer of surveyed street segments (source: Systematica) and Open Street Map basemap.
+								</p>
+								<div class="col align-center">
+									<img src="data.jpg" alt="" height="350" />	
+								</div>
+								<br />
+								<p>The map shows the collected raw points divided by data type the surveyed street segments in our designated area of “Isola” (source: Systematica). 
+								</p>
+								<p>Note that some points fall off the street segments which they refer to because of the limited geopositioning accuracy of our mobile phone devices during the data collection process. The average accuracy in position of our sampled points was 12 meters. This suggested editing the position of these points close enough to the respective street segments in order have an intersection between the two layers.
+								</p>
+						</div>
+					</section>				
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="copyright">					
+					<p>&copy; GIS Polimi. All rights reserved. Design: <a href="https://templated.co">TEMPLATED</a></p>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script src="assets/js/map.js"></script>
+
+	</body>
+</html>
