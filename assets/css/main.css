@@ -227,12 +227,12 @@
 
 
 	#map{
-		
+		position: relative;
 		height: 600px;
 		width: 100%;
 	}
 	#map2{
-		 
+		 position: relative;
 		height: 600px;
 		width: 100%;
 	}
@@ -262,7 +262,7 @@
 	#legend{
 	    position: absolute; 
 	    left: 10px; 
-	    bottom:-180px; 
+	    bottom: 10px; 
 	    z-index:10000; 
 	    width:100px; 
 	    height:100px; 
@@ -270,7 +270,7 @@
 	}
 	#legend2{
 	    position:absolute; 
-	    right:10px; 
+	    left:10px; 
 	    bottom:10px; 
 	    z-index:10000; 
 	    width:100px; 
@@ -279,7 +279,7 @@
 	}
 	.layer-switcher.shown .panel {
     display: block!important;
-    width: 380px!important;
+    width: 300px!important;
 	}
 
 	.layer-switcher .panel {
