@@ -32,22 +32,50 @@
 						<div class="inner">			
 							<hr class="major" />
 								<h3>Data Processing</h3>
-								<p>The second step in our workflow was data processing. We started by downloading the sampled data in csv format from Epicollect5 website. In fact, since point measurements were recorded by each of us using her/his Epicollect5 account, four separate csv files were downloaded and then merged.
+								<p>The second step in our workflow was data processing. This was probably the most interesting part of the whole project because we got to apply the knowledge and skills learnt during Geographical Information System course.
 								</p>
-								<p>Data processing was probably the most interesting part of our project, since here we got to apply the knowledge and skills learnt during the Geographical Information System course. Data processing was performed in QGIS 3.4, a free and open source GIS software developed by Open Source Geospatial Foundation (OSGeo). Using QGIS we were able to process the collected data, to visualize this information and, finally, to compute PLOS and E-PLOS models.</p>
+								<p>Data processing was performed in QGIS 3.4, a free and open source GIS software developed by Open Source Geospatial Foundation (OSGeo). This software enabled us to process, to organize and to visualize the collected data, as well as to calculate the PLOS and E-PLOS models.
+								</p>
 
-								<p>In QGIS 3.4, we created a new project and added the merged csv file as a delimited text layer in order to visualize the collected data points above the layer of surveyed street segments (source: Systematica) and Open Street Map basemap.
+								<p>We started by downloading the collected data from Epicollect5. More precisely, since each of us had recorded some data using her/his mobile device and Epicollect5 account, we obtained four separate .csv files that next we merged into a single one.
+								</p>
+								<p>In QGIS 3.4, we created a new project and added the merged .csv file as a delimited text layer. Collected data points were visualized above the layer of street segments (source: Systematica) and Open Street Map basemap, as shown in the picture below. This task was possible since for each measurement Epicollect5 recorded the coordinates of the location where it was made.
 								</p>
 								<div class="col align-center">
-									<img src="images/data.jpg" alt="" height="350" />	
+									<img src="images/rwdata.jpg" alt="" height="350" />	
 								</div>
 								<br />
-								<p>The map shows the collected raw points divided by data type the surveyed street segments in our designated area of “Isola” (source: Systematica). 
+								<p>We noticed that some points felt off the corresponding street segments despite they were collected along them. The wrong positioning collected data was due to the low GPS accuracy of the mobile devices used for surveying. The average positioning accuracy of sampled data was 12 meters. We solved this issue by editing the position of misplaced points, that is we moved them close enough to intersect the buffer created around street segments. 
 								</p>
-								<p>Note that some points fall off the street segments which they refer to because of the limited geopositioning accuracy of our mobile phone devices during the data collection process. The average accuracy in position of our sampled points was 12 meters. This suggested editing the position of these points close enough to the respective street segments in order have an intersection between the two layers.
+								<p>Next, we split the edited data into multiple layers based on their type, e.g.  width of sidewalk, number of lanes, curb ramps etc. This step was not strictly necessary for the data processing that followed, nevertheless we decided to do it for completeness and because having separate layers for different data type might simplify future analysis.
 								</p>
-								<p>Data related to the public services (e.g. schools, pharmacies, post offices, etc.) were provided in a csv file by Politecnico di Milano. These data, however, did not have geographical coordinates assigned but only their street addresses, so we had to geocode this information before being able to visualize the points on the map. This operation was performed with Geocode, a function in MMQGIS plugin for QGIS.</p>
-								<p>The next step in our data processing was to create a different layer for each of the data type collected and to join this information with the one provided by Systematica and Politecnico di Milano. We computed a buffer around every street segment using the Buffer function available in QGIS Geoprocessing Tools. The buffer had to be of wide enough to cover all the collected points. Once data points were properly placed and buffers computed, we used the Join Attribute by Location function in QGIS Data Management Tools to assigned to each street segment the measured value. This operation was repeated for every data type layer, the pictures below show an example of joining by location performed on width of sidewalk and road buffer layers.</p>
+								<p>Data of public services (e.g. schools, pharmacies, post offices, etc.) were provided to us in a .csv file by Politecnico di Milano, but they did not have coordinates assigned. Instead they contained street addresses. Therefore, we had to geocode the position of these points in order to visualize them on the map, an operation that we performed with Geocode, a function in MMQGIS plugin.
+								</p>
+								<p>We computed buffers around each street segment using the dedicated function in QGIS Geoprocessing Tools. Buffers had to be wide enough to cover all the collected points so that the information about these points could then be merged with the attribute table of the street layer provided by Systematica.
+								</p>
+								<p>Next, using Join Attribute by Location in QGIS Data Management Tools, we assigned to each street segment the measured values. This operation was done for every data layer, the pictures below, for example, show the joining between width of sidewalk and street buffer layers.
+								</p>
+								<div class="flex flex-2">				
+									<div class="col align-center">
+										<img style="padding-top: 20px" src="images/compoints.jpg" alt="" height="250" />							
+									</div>
+
+									<div class="col align-center">	
+										<img style="padding-top: 20px" src="images/compoints.jpg" alt="" height="250" />	
+									</div>
+								</div>
+								<br />
+								<p>Once all the data collected on the field by us or sourced from Systematica were consolidated into the same attribute table of street segments’ shapefile, we could finally evaluate the level of service of the pedestrian infrastructure in Isola using the PLOS and E-PLOS formulas. This step was easily done using Field Calculator in QGIS and creating two new shapefiles for PLOS and E-PLOS respectively. The picture below shows the attribute table of the PLOS shapefile. 
+								</p>
+								<div class="col align-center">
+									<img src="images/table.jpg" alt="" height="350" />	
+								</div>
+								<br />
+								<p>The result of PLOS (E-PLOS) calculation was a numerical value for each street segment, such value then led to assigning a score ranging from “A” (= highly pedestrian oriented environment) down to “F” (= extremely car-oriented environment, roads preliminary designed for high volumes traffic).
+								</p>
+								<p>Finally, we visualized the PLOS (E-PLOS) score of each street segment in the area under our investigation on a map. Here the color represents the score. Notice that the quality of the existing pedestrian infrastructure was good to very good everywhere in Isola: all street segments received the maximum score “A”, but the East side of Via Giuseppe Pape, where PLOS calculation led to a “C” mainly due to the narrow walkway and no shoulder separating pedestrian from vehicle traffic. </p>
+
+
 
 						</div>
 					</section>				

@@ -40,8 +40,8 @@
 				<div class="col align-center">
 					<h4 style="padding-top: 70px">PLOS</h4>
 					<div id="map">
-						<div id="popup"></div>
-						<div id="legend"></div>						
+						<div id="popup"></div>						
+						<div id="legend" style="background-image: url(images/images/colors.PNG)"></div>			
 					</div>											
 				</div>
 
@@ -49,6 +49,7 @@
 					<h4 style="padding-top: 70px">EPLOS</h4>
 					<div id="map2">
 						<div id="popup2"></div>
+						<div id="legend2" style="background-image: url(images/images/colors.PNG)"></div>
 					</div>												
 				</div>
 			</div>	
@@ -65,11 +66,11 @@
 						<div class="flex flex-2">
 							<div class="col align-left">
 							<h2 id="content">Pedestrian Level of Service</h2>
-							<p>The Pedestrian Level of service (PLOS) model is aimed exactly at assessing the quality of the pedestrian infrastructure, allowing city planners to be aware of the current status of the walking conditions on road and street corridors.</p>
+							<p>The Pedestrian Level of service (PLOS) is a model that asseses the quality of the pedestrian infrastructure, allowing city planners to be aware of the current status of the walking conditions on road and street corridors.</p>
 
-							<p>The PLOS is a qualitative measure of quality of the walkways and it leads to an objective and sound evaluations of pedestrians’ perception and response to roadway environment. The model focuses primarily on the characteristics of the road infrastructure, taking into account a number of parameters, such as width of sidewalk, number of vehicular lanes, traffic volume and traffic speed, presence of buffers or bike lanes etc., and it returns a numerical value that summarizes the overall quality of the pedestrian infrastructure, the lower the output value the  better quality of the infrastructure.</p>
+							<p>The PLOS gives qualitative measure of pedestrians’ perception and response to roadway environment. The model focuses primarily on the characteristics of the road infrastructure, takes into account many physical parameters, such as width of sidewalk, number of vehicular lanes, traffic volume and traffic speed, presence of buffers or bike lanes etc., and it returns a score that summarizes the overall quality of the pedestrian infrastructure, the lower the output value the  better quality of the infrastructure.</p>
 
-							<p>Enhanced Pedestrian Level of Service (EPLOS) includes some improvements on the model such as presence of lightnings, public services, curb ramps etc. on the point of interest. This enhancement on the model can show us the importance of having these features on the quality of pedestrian life. </p>
+							<p>Enhanced Pedestrian Level of Service (EPLOS) includes some improvements on the model such as presence of lightnings, public services, curb ramps etc. This enhancement on the model can show us the importance of these features on the quality of pedestrian life. </p>
 						</div>
 
 						<div class="col align-left">
@@ -87,32 +88,32 @@
 										<tr>
 											<td style="color: #34eb34; font-weight: 1000; text-align: center;">A</td>
 											<td>Highly pedestrian oriented environment, ample sidewalk space.</td>
-											<td>≤ 2</td>
+											<td>x ≤ 2</td>
 										</tr>
 										<tr>
 											<td style="color: #93eb34; font-weight: 1000; text-align: center;">B</td>
 											<td>Streets with many pedestrian safety and comfort features.</td>
-											<td>>2 and ≤2.75</td>
+											<td> 2< x ≤ 2.75</td>
 										</tr>
 										<tr>
 											<td style="color: #ffc803; font-weight: 1000; text-align: center;">C</td>
 											<td> Standard sidewalk, some deficiencies in pedestrian facility design and/or higher vehicle traffic.</td>
-											<td>>2.75 and ≤3.5</td>
+											<td> 2.75< x ≤3.5</td>
 										</tr>
 										<tr>
 											<td style="color: #eb9334; font-weight: 1000; text-align: center;">D</td>
 											<td>Streets adequate for pedestrian use but has frequent deficiencies for width and clearance.</td>
-											<td>>3.5 and ≤4.25</td>
+											<td>3.5< x ≤4.25</td>
 										</tr>
 										<tr>
 											<td style="color: #eb3434; font-weight: 1000; text-align: center;">E</td>
 											<td>Streets inadequate for pedestrian use, high level of interaction with traffic.</td>
-											<td>>4.25 and ≤5</td>
+											<td>4.25< x ≤5</td>
 										</tr>
 										<tr>
 											<td style="color: #9334eb; font-weight: 1000; text-align: center;">F</td>
 											<td>Extremely car oriented environment, roads preliminary designed for high volumes traffic.</td>
-											<td>>5</td>
+											<td> x > 5</td>
 										</tr>
 									</tbody>									
 								</table>
@@ -128,7 +129,7 @@
 									<img height="250" alt="" src="images/images/Road.JPG">
 								</div>
 								<br />
-								<h4 >PLOS = 6.0468 + 0.0091 * (\(V_m \over 4*N_{th}\)) + 4*(\(S_R \over 100\))^2 - 1.2276 * \(ln ( W_v + 0.5 W_1 + 50 P_{pk} + W_{buf} * f_b + W_{aA} * fsw)\)
+								<h4 > \(PLOS = 6.0468 + 0.0091\) * (\(V_m \over 4*N_{th}\)) + \(4\)*(\(S_R \over 100\)) \(^2 - 1.2276\) * \(ln ( W_v + 0.5 W_1 + 50 P_{pk} + W_{buf} * f_b + W_{aA} * fsw)\)
 								</h4>
 								<br />
 								<div class="align-center">
