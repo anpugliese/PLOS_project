@@ -54,16 +54,11 @@
 								<p>We computed buffers around each street segment using the dedicated function in QGIS Geoprocessing Tools. Buffers had to be wide enough to cover all the collected points so that the information about these points could then be merged with the attribute table of the street layer provided by Systematica.
 								</p>
 								<p>Next, using Join Attribute by Location in QGIS Data Management Tools, we assigned to each street segment the measured values. This operation was done for every data layer, the pictures below, for example, show the joining between width of sidewalk and street buffer layers.
-								</p>
-								<div class="flex flex-2">				
-									<div class="col align-center">
-										<img style="padding-top: 20px" src="images/compoints.jpg" alt="" height="250" />							
-									</div>
-
-									<div class="col align-center">	
-										<img style="padding-top: 20px" src="images/compoints.jpg" alt="" height="250" />	
-									</div>
+								</p>											
+								<div class="col align-center">
+									<img style="padding-top: 20px" src="images/compoints.jpg" alt="" height="350" />							
 								</div>
+								
 								<br />
 								<p>Once all the data collected on the field by us or sourced from Systematica were consolidated into the same attribute table of street segments’ shapefile, we could finally evaluate the level of service of the pedestrian infrastructure in Isola using the PLOS and E-PLOS formulas. This step was easily done using Field Calculator in QGIS and creating two new shapefiles for PLOS and E-PLOS respectively. The picture below shows the attribute table of the PLOS shapefile. 
 								</p>
